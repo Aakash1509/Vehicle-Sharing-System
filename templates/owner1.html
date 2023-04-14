@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Owner{% endblock title %}
+{% block body %}
+<center>
+    <h1>Add owner to database</h1><br><br>
+    {% comment %} {% if submitted %}
+        Owner was registered Successfully !
+
+
+    {% else %} {% endcomment %}
+    <form action="{% url 'owner' %}" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text" id="basic-addon1">@</span> {% endcomment %}
+            <input type="text" name="name" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text">$</span> {% endcomment %}
+            <input type="text" name="email" class="form-control" placeholder = "Enter email " >
+            {% comment %} <span class="input-group-text">.00</span> {% endcomment %}
+          </div>
+          
+          <div class="input-group mb-3">
+            <input type="text" name="location" class="form-control" placeholder="Enter Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            {% comment %} <select name="location" id="location">
+              <option value="Nadiad">Nadiad</option>
+              <option value="Anand">Anand</option>
+              <option value="Vadodara" selected>Vadodara</option>
+    
+            </select> {% endcomment %}
+            {% comment %} <span class="input-group-text" id="basic-addon2">@example.com</span> {% endcomment %}
+          </div>
+          
+          {% comment %} <div class="mb-3">
+            <label for="basic-url" class="form-label">Your vanity URL</label>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
+            <div class="form-text">Example help text goes outside the input group.</div>
+          </div> {% endcomment %}
+          
+          <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text">$</span> {% endcomment %}
+            <input type="text" name="carname" class="form-control" placeholder="Enter name of car" aria-label="Amount (to the nearest dollar)">
+            {% comment %} <span class="input-group-text">.00</span> {% endcomment %}
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text">$</span> {% endcomment %}
+            <input type="text" name="seats" class="form-control" placeholder="Enter seats available in the car" aria-label="Amount (to the nearest dollar)">
+            {% comment %} <span class="input-group-text">.00</span> {% endcomment %}
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text">$</span> {% endcomment %}
+            <input type="text" name="phone" class="form-control" placeholder = "Enter phone number " aria-label="Amount (to the nearest dollar)">
+            {% comment %} <span class="input-group-text">.00</span> {% endcomment %}
+          </div>
+
+          <div class="input-group mb-3">
+            {% comment %} <span class="input-group-text">$</span> {% endcomment %}
+            <input type="text" name="date_time" class="form-control" placeholder="Enter date and time" aria-label="Amount (to the nearest dollar)">
+            {% comment %} <span class="input-group-text">.00</span> {% endcomment %}
+          </div>
+          
+          <div class="input-group mb-3">
+            {% comment %} <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+            <span class="input-group-text">@</span> {% endcomment %}
+            <label for="" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" placeholder="Choose a file" aria-label="Server">
+          </div>
+          
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% comment %} {% endif %} {% endcomment %}
+</center>
+{% endblock body %}
